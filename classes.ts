@@ -27,8 +27,13 @@ class Carro{
     ){}
 
     private alterarVelocidade(delta:number){
-        if(this.velocidadeAtual+delta<this.velocidadeMax && (this.velocidadeAtual+delta>=0))
-        this.velocidadeAtual+=delta;
+        const novaVelocidade=this.velocidadeAtual+delta;
+        if(novaVelocidade<=this.velocidadeMax && novaVelocidade>=0){
+            this.velocidadeAtual=novaVelocidade;
+        }else{
+            this.velocidadeAtual = delta > 0 ? this.velocidadeMax : 0
+        }
+        
     }
 
     acelerar(){
@@ -44,3 +49,22 @@ class Carro{
 
 const carro=new Carro('Fiat','Uno',250);
 carro.acelerar();
+
+//Herança
+class Camaro extends Carro{
+
+    private turbo =false;
+
+    constructor(){
+        super("Chevrolet","Camaro",500);
+    }
+
+    ligarTurbo(){
+        this.turbo=true;
+    }
+}
+
+const camaro = new Camaro();
+camaro.acelerar();
+camaro.frear();
+camaro.ligarTurbo();
