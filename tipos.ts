@@ -93,3 +93,17 @@ function tratarFuncionarios(funcionarios:Funcionario[]){
         console.log(`Nome do funcionrio: ${funcionario.nome}`)
     }
 }
+
+let altura:number|null = 1.6;
+altura=null;
+
+type Contato={
+    nome:string;
+    telefone1:string;
+    telefone2?:string; //nao precisa ser declarado
+}
+
+const contato:Contato={
+    nome:"Jorge",
+    telefone1:"1234560.."
+}
